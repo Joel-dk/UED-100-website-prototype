@@ -1,3 +1,41 @@
-/* Skip link */
+
+
+/* themes for consistent theming */
+:root{
+    --bg:#141414;
+    --panel:#0f0f0f;
+    --muted: #9aa0a6;
+    --accent: #E50914;
+}
+
+/* page background and main font */
+body{
+    background: var(--bg);
+    color: #fff;
+    font-family: "Segoe UI", Roboto, Helvetica, arial, sans-serif;
+}
+.container{
+    max-width: 1100px;
+}
+
+/* Skip link https://webaim.org/techniques/skipnav/ */
 .skip-link { position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 .skip-link:focus { left: 10px; top: 10px; width: auto; height: auto; background: #fff; color: #000; padding: 8px; z-index: 1000; border-radius:4px; }
+
+/* header/navbar */
+.navbar .nav-link{
+    color: var(--muted);
+}
+.navbar .nav-link:hover {
+    color: #fff;
+}
+
+/* visually hidden class for accessibility */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip:rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}
