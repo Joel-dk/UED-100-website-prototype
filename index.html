@@ -64,6 +64,59 @@
             <img src="assets/poster1.jpg" alt="Featured poster" class="img-fluid-rounded" loading="lazy" style="max-width:220px;" />
             <div class="small text-muted mt-2">Featured poster</div>
          </div>
+        </section>
+
+        <!-- Trending carousel (horizontal scroll)
+         "role=list"/"role=listitem" for accessibility
+         each poster can be 'tab focused' for keyboard navigation https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/ -->
+        <section aria-label="Trending" class="mb-4"
+            <h3 class="h5 mb-2">Trending</h3>
+            <div class="horizontal-scroll" role="list" aria-label="Trending list">
+                <!-- Each article is a carousel card-->
+                 <article role="listitem" class="card poster-card" tabindex="0">
+                    <img src="assets/poster1.jpg" loading="lazy" alt="Poster 1" />
+                    <div class="card-body">
+                        <h4 class="card title small">Poster 1</h4>
+                    </div>
+                 </article>
+                 <!-- Repeat for each poster -->
+                    <article role="listitem" class="card poster-card" tabindex="0">
+                        <img src="assets/poster2.jpg" loading="lazy" alt="Poster 2" />
+                        <div class="card-body">
+                            <h4 class="card title small">Poster 2</h4>
+                        </div>
+                    </article>
+
+                    <article role="listitem" class="card poster-card" tabindex="0">
+                        <img src="assets/poster3.jpg" loading="lazy" alt="Poster 3" />
+                        <div class="card-body">
+                            <h4 class="card title small">Poster 3</h4>
+                        </div>
+                    </article>
+
+                    <article role="listitem" class="card poster-card" tabindex="0">
+                        <img src="assets/poster4.jpg" loading="lazy" alt="Poster 4" />
+                        <div class="card-body">
+                            <h4 class="card title small">Poster 4</h4>
+                        </div>
+                    </article>
+
+                    <article role="listitem" class="card poster-card" tabindex="0">
+                        <img src="assets/poster5.jpg" loading="lazy" alt="Poster 5" />
+                        <div class="card-body">
+                            <h4 class="card title small">Poster 5</h4>
+                        </div>
+                    </article>
+
+                    <article role="listitem" class="card poster-card" tabindex="0">
+                        <img src="assets/poster6.jpg" loading="lazy" alt="Poster 6" />
+                        <div class="card-body">
+                            <h4 class="card title small">Poster 6</h4>
+                        </div>
+                    </article>
+
+            </div>
+        </section>
     </main>
 
     <!-- Simple footer with 4 padding -->
