@@ -45,9 +45,25 @@
     </div>
     </header>
 
-    <!-- Main content area with tabindex and aria-labelledby for accessibility -->
+    <!-- Main heading which is visually hidden but present for screen readers -->
     <main id="main" class ="container py-4" tabindex ="-1" aria-labelledby="main-heading">
         <h1 id="main-heading" class="visually-hidden">Netflix Prototype</h1>
+
+        <!-- Featured section with a large image and text overlay using bootstrap grid system
+         "mb-4": (m)argin (b)ottom and 4 is the spacing value, "col-md-8": (col)umn - 12 coloumn grid, md = medium screen size: typically 768 px wide and 8 is the width the column should occupy https://getbootstrap.com/docs/5.0 -->
+         <section class="mb-4"
+         <div class="intro-banner p-4 rounded-3" role="region" aria-label="Featured content">
+            <div class="col-md-8">
+                <button class="btn btn-danger me-2">Play</button>
+                <button class="btn btn-outline-light" id="moreInfoBtn">More info</button>
+            </div>
+         </div>
+
+         <!-- Lazy loaded image for performance, alt ensures accessibility https://web.dev/lazy-loading/-->
+         <div class="col-md-8 d-none d-md-block text-end">
+            <img src="assets/poster1.jpg" alt="Featured poster" class="img-fluid-rounded" loading="lazy" style="max-width:220px;" />
+            <div class="small text-muted mt-2">Featured poster</div>
+         </div>
     </main>
 
     <!-- Simple footer with 4 padding -->
