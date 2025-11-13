@@ -17,13 +17,32 @@
      reference: https://www.w3.org/WAI/WCAG21/quickref/#bypass-blocks-->
     <a class="skip-link" href="#main">Skip to main content</a>
 
-    <!-- Bootstrap navigation bar that expands on large screens -->
+    <!-- Responsive navigation bar using bootstraps mobile friendly navbar. py-3 - (p)adding (y)axis and 3 is the spacing value from 0 - 5) https://getbootstrap.com/docs/5.0 -->
     <header class="navbar navbar-expand-lg navbar-dark bg-dark py-3"
     <div class="container">
-        <a class="navbar-brand" href="#">Netflix</a>
+        <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- Brand logo image with alt text for accessibility-->
+            <img src="assets/logo.png" alt="brand logo" width="40" height="24" />
+            <span class="ms-2">Netflix Prototype</span>
+        </a>
+
+        <!-- Mobile menu toggle button using bootstrap attributes.
+         "aria-controls": target menu, "aria-expanded": current state, "aria-label":for screen readers https://getbootstrap.com/docs/5.0 -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- navigation menu links.
+         "ms-auto" autoplaces items at the end for clean ui, "account" button launches form (which will be handled in js) -->
         <nav id="mainNav" class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto align items lg center">
+                <li class="nav-item"><a class="nav-link" href="#">Browse</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">My List</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item ms-lg-3"><button id="profileBtn" class="btn-outline-light btn-sm">Account</button></li>
+            </ul>
         </nav>
-        </div>
+    </div>
     </header>
 
     <!-- Main content area with tabindex and aria-labelledby for accessibility -->
@@ -31,7 +50,7 @@
         <h1 id="main-heading" class="visually-hidden">Netflix Prototype</h1>
     </main>
 
-    <!-- Simple footer -->
+    <!-- Simple footer with 4 padding -->
     <footer class="py-4 border-top border-secondary">
         <div class="container">
             <small>Prototype build</small>
