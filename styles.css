@@ -30,6 +30,17 @@ body{
     color: #fff;
 }
 
+/* intro banner section: subtle gradient overlay and shadow for depth - enhances visual hierarchy and draws attention */
+.intro-banner{
+    background: linear-gradient(90deg, rgba(20,20,20,0.95), rgba(30,30,30,0.75));
+    border: 1px solid rgba(255,255,255,0.03);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+}
+.intro-banner .display-6{
+    font-weight: 300;
+    color: #fff;
+}
+
 /* visually hidden class for accessibility */
 .visually-hidden {
     position: absolute !important;
