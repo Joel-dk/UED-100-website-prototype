@@ -135,7 +135,7 @@
                         <img src="assets/poster1.jpg" alt="poster 1" loading="lazy" />
                     </div>
                 </div>
-                
+
                 <!-- Repeat for each poster -->
                  <div class="col-6 col-sm-4 col-md-3">
                     <div class="card bg-secondary poster-card-small" tabindex="0">
@@ -155,6 +155,32 @@
                     </div>
 
             </div>
+        </section>
+
+        <!-- Contact / feedback form
+         "novalidate": disables native validation so custom feedback can be shown. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
+         <section id="contact" aria-labelledby="contact-heading" class="mb-5"
+            <h3 id="contact heading" class="h5">Contact / Feedback</h3>
+            <form id="contactForm" novalidate>
+                <div class="mb-3"
+                    <label for="name" class="form-label">Name<span aria-hidden="true">*</span></label>
+                    <input type="text" class="form-control" id="name" name="name" required aria-required="true" />
+                    <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="mb-3"
+                    <label for="email" class="form-label">Email<span aria-hidden="true">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" required aria-required="true" />
+                    <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+                <div class="mb-3"
+                    <label for="message" class="form-label">Message</label>
+                    <textarea id="message" rows="4" class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger">Send</button>
+                <div id="formStatus" role="status" class="mt-3" aria-live="polite"></div>
+            </form>
+        </section>
+        
     </main>
 
     <!-- Simple footer with 4 padding -->
