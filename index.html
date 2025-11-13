@@ -117,6 +117,44 @@
 
             </div>
         </section>
+
+        <!-- Browse all grid using Bootstraps row/col classes
+         will include a toggle button to switch between grid and list views-->
+         <section aria-label="Browse all" class="mb-4"
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h3 class="h5">Browse all</h3>
+                <div>
+                    <!-- updates layout via js -->
+                    <button id="viewToggle" class="btn btn-sm btn-outline-light">Toggle grid</button>
+                </div>
+            </div>
+            <!-- "grid" container switches between grid and list with .list-view via js -->
+            <div id="grid" class="row g-3">
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster1.jpg" alt="poster 1" loading="lazy" />
+                    </div>
+                </div>
+                
+                <!-- Repeat for each poster -->
+                 <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster2.jpg" alt="poster 2" loading="lazy" />
+                    </div>
+                </div>
+
+                 <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster3.jpg" alt="poster 3" loading="lazy" />
+                    </div>
+                </div>
+
+                 <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster4.jpg" alt="poster 4" loading="lazy" />
+                    </div>
+
+            </div>
     </main>
 
     <!-- Simple footer with 4 padding -->
