@@ -7,7 +7,7 @@
 
     <!-- Bootstrap provides a responsive layout which allows the page to automatically rearrange itself from a desktop to a mobile view
      also provides some clean ready made components. https://getbootstrap.com/ -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="description" content="prototype streaming web interface - UED100 Assessment 2"/>
     <link rel="stylesheet" href="styles.css"/>
 
@@ -18,7 +18,7 @@
     <a class="skip-link" href="#main">Skip to main content</a>
 
     <!-- Responsive navigation bar using bootstraps mobile friendly navbar. py-3 - (p)adding (y)axis and 3 is the spacing value from 0 - 5) https://getbootstrap.com/docs/5.0 -->
-    <header class="navbar navbar-expand-lg navbar-dark bg-dark py-3"
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
         <!-- Brand logo image with alt text for accessibility-->
@@ -51,7 +51,7 @@
 
         <!-- Featured section with a large image and text overlay using bootstrap grid system
          "mb-4": (m)argin (b)ottom and 4 is the spacing value, "col-md-8": (col)umn - 12 coloumn grid, md = medium screen size: typically 768 px wide and 8 is the width the column should occupy https://getbootstrap.com/docs/5.0 -->
-         <section class="mb-4"
+         <section class="mb-4">
          <div class="intro-banner p-4 rounded-3" role="region" aria-label="Featured content">
             <div class="col-md-8">
                 <button class="btn btn-danger me-2">Play</button>
@@ -69,7 +69,7 @@
         <!-- Trending carousel (horizontal scroll)
          "role=list"/"role=listitem" for accessibility
          each poster can be 'tab focused' for keyboard navigation https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/ -->
-        <section aria-label="Trending" class="mb-4"
+        <section aria-label="Trending" class="mb-4">
             <h3 class="h5 mb-2">Trending</h3>
             <div class="horizontal-scroll" role="list" aria-label="Trending list">
                 <!-- Each article is a carousel card-->
@@ -120,49 +120,116 @@
 
         <!-- Browse all grid using Bootstraps row/col classes
          will include a toggle button to switch between grid and list views-->
-         <section aria-label="Browse all" class="mb-4"
+         <section aria-label="Browse all" class="mb-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h3 class="h5">Browse all</h3>
                 <div>
                     <!-- updates layout via js -->
-                    <button id="viewToggle" class="btn btn-sm btn-outline-light">Toggle grid</button>
+                    <button id="layoutToggle" class="btn btn-sm btn-outline-light me-2">Toggle List</button>
+
+                    <button id="visibilityToggle" class="btn btn-sm btn-outline-light">Show All</button>
                 </div>
             </div>
-            <!-- "grid" container switches between grid and list with .list-view via js -->
+           
             <div id="grid" class="row g-3">
                 <div class="col-6 col-sm-4 col-md-3">
                     <div class="card bg-secondary poster-card-small" tabindex="0">
                         <img src="assets/poster1.jpg" alt="poster 1" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 1 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button> <!-- play button for list view -->
+                        </div>
                     </div>
                 </div>
 
-                <!-- Repeat for each poster -->
+               
                  <div class="col-6 col-sm-4 col-md-3">
                     <div class="card bg-secondary poster-card-small" tabindex="0">
                         <img src="assets/poster2.jpg" alt="poster 2" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 2 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button> 
+                        </div>
                     </div>
                 </div>
 
                  <div class="col-6 col-sm-4 col-md-3">
                     <div class="card bg-secondary poster-card-small" tabindex="0">
                         <img src="assets/poster3.jpg" alt="poster 3" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 3 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
+                        </div>
                     </div>
                 </div>
 
                  <div class="col-6 col-sm-4 col-md-3">
                     <div class="card bg-secondary poster-card-small" tabindex="0">
                         <img src="assets/poster4.jpg" alt="poster 4" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 4 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
+                        </div>
                     </div>
+                 </div>
+
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster5.jpg" alt="poster 5" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 5 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster6.jpg" alt="poster 6" loading="lazy" /> 
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 6 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster7.jpg" alt="poster 7" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 7 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-3">
+                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                        <img src="assets/poster8.jpg" alt="poster 8" loading="lazy" />
+                        <div class = "card-details">
+                            <h4 class="h6 mb-1">Poster 8 Title</h4> <!-- title for list view -->
+                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </section>
 
         <!-- Contact / feedback form
          "novalidate": disables native validation so custom feedback can be shown. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
-         <section id="contact" aria-labelledby="contact-heading" class="mb-5"
+         <section id="contact" aria-labelledby="contact-heading" class="mb-5">
             <h3 id="contact heading" class="h5">Contact / Feedback</h3>
             <form id="contactForm" novalidate>
-                <div class="mb-3"
+                <div class="mb-3">
                     <label for="name" class="form-label">Name<span aria-hidden="true">*</span></label>
                     <input type="text" class="form-control" id="name" name="name" required aria-required="true" />
                     <div class="invalid-feedback">Please enter your name.</div>
@@ -193,7 +260,7 @@
     
 
     <!-- bootstrap JS for collapse features -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src ="main.js"></script>
 </body>
 </html>

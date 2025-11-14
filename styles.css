@@ -86,22 +86,65 @@ body{
     width: 100%; display:block;
 }
 
+/* list view card details - title, description, play button */
+#grid > div:nth-child(n+5){
+    display: none;
+}
+
+#grid.show-all > div:nth-child(n+5){
+    display: block;
+}
+.card-details{
+    padding:8px 0;
+    flex-grow: 1;
+}
+
+#grid.list-view .col-6{
+    flex: 0 0 100%;
+    max-width: 100%;
+
+    padding-left:var(--bs-gutter-x, 0.75rem);
+    padding-right:var(--bs-gutter-x, 0.75rem);
+}
+
+#grid.list-view .poster-card-small{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    padding: 15px;
+    height: 120px;
+    overflow: hidden;
+}
+
+#grid.list-view .poster-card-small img{
+    width:120px;
+    height: 90px;
+    object-fit: cover;
+}
+
+#grid.list-view .card-details h4 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#grid.list-view .card-details p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#grid.list-view > div{
+    display: block !important;
+}
+
+
 /* focus outlines for accessibility - visable only when keyboard is used */
 .poster-card:focus, .poster-card-small:focus, button:focus, a:focus{
     box-shadow: 0 0 0 3px rgba(229,9,20,0.22);
     outline:none; border-radius:6px;
 }
 
-/* grid/list view toggle contrlled via js */
-#grid.list-view .col-6{
-    flex: 0 0 100%; max-width: 100%;
-}
-#grid.list-view .poster-card-small{
-    display:flex; align-items: center; gap:12px;
-}
-#grid.list-view img{
-    width: 120px; height: auto; object-fit:cover;
-}
+
 
 /* responsive adjustments - card spacing scale for mobile devices  https://getbootstrap.com/docs/5.3/layout/breakpoints/ */
 @media(max-width: 576px){
