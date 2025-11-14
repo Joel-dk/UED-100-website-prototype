@@ -41,6 +41,58 @@ body{
     color: #fff;
 }
 
+/*horizontal scroll for trending carousel posters*/
+.horizontal-scroll{
+    display:flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 8px 4px;
+}
+.horizontal-scroll::-webkit-scrollbar {
+    height: 8px;
+}
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+}
+
+/* poster cards */
+.poster-card{
+    width:220px; min-width:220px; background:var(--panel);
+    border:1px solid rgba(255,255,255,0.03);
+    border-radius:8px;
+    overflow:hidden;
+    outline:none; transition: transform .18s ease, box-shadow .18s ease;
+}
+.poster-card img{
+    width: 100%; display:block;
+}
+.poster-card .card-body{
+    padding:8px;
+    background:transparent;
+}
+.poster-card:focus, .poster-card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* browse all, smaller grid cards */
+.poster-card-small{
+    border-radius: 6px;
+    overflow: hidden;
+    border:1px solid rgba(255,255,255,0.03);
+}
+.poster-card-small img{
+    width: 100%; display:block;
+}
+
+/* focus outlines for accessibility - visable only when keyboard is used */
+.poster-card:focus, .poster-card-small:focus, button:focus, a:focus{
+    box-shadow: 0 0 0 3px rgba(229,9,20,0.22);
+    outline:none; border-radius:6px;
+}
+
+
 /* visually hidden class for accessibility */
 .visually-hidden {
     position: absolute !important;
