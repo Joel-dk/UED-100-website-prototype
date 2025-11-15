@@ -52,67 +52,84 @@
         <!-- Featured section with a large image and text overlay using bootstrap grid system
          "mb-4": (m)argin (b)ottom and 4 is the spacing value, "col-md-8": (col)umn - 12 coloumn grid, md = medium screen size: typically 768 px wide and 8 is the width the column should occupy https://getbootstrap.com/docs/5.0 -->
          <section class="mb-4">
-         <div class="intro-banner p-4 rounded-3" role="region" aria-label="Featured content">
-            <div class="col-md-8">
-                <button class="btn btn-danger me-2">Play</button>
-                <button class="btn btn-outline-light" id="moreInfoBtn">More info</button>
-            </div>
-         </div>
+            <div class='intro-banner p-4 rounded-3' role="region" aria-label="featured content">
+                <div class="row align-items-center">
 
-         <!-- Lazy loaded image for performance, alt ensures accessibility https://web.dev/lazy-loading/-->
-         <div class="col-md-8 d-none d-md-block text-end">
-            <img src="assets/poster1.jpg" alt="Featured poster" class="img-fluid-rounded" loading="lazy" style="max-width:220px;" />
-            <div class="small text-muted mt-2">Featured poster</div>
-         </div>
+                    <div class="col-md-8">
+                        <h2 class="display-6">Featured Title</h2> <!-- featured title insert -->
+                        <p class="lead"> description </p> <!-- featured description insert -->
+                        <div>
+                            <button class="btn btn-danger me-2">Play</button>
+                            <button class="btn btn-outline-light" id="moreInfoBtn">More Info</button>
+                        </div>
+                    </div>
+                    <div class ="col-md-4 text-end d-none d-md-block">
+                        <img src="assets/poster1.jpg" loading="lazy" alt="Featured poster" class="img-fluid rounded" style="max-width:220px;" />
+                    <div class="small text-muted mt-2">Featured poster</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Trending carousel (horizontal scroll)
          "role=list"/"role=listitem" for accessibility
-         each poster can be 'tab focused' for keyboard navigation https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/ -->
+         each poster can be 'tab focused' for keyboard navigation https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/
+         posters retrieved from https://www.themoviedb.org/ -->
         <section aria-label="Trending" class="mb-4">
             <h3 class="h5 mb-2">Trending</h3>
             <div class="horizontal-scroll" role="list" aria-label="Trending list">
                 <!-- Each article is a carousel card-->
-                 <article role="listitem" class="card poster-card" tabindex="0">
+                 <article role="listitem" class="poster-card" tabindex="0">
                     <img src="assets/poster1.jpg" loading="lazy" alt="Poster 1" />
                     <div class="card-body">
                         <h4 class="card title small">Poster 1</h4>
                     </div>
                  </article>
                  <!-- Repeat for each poster -->
-                    <article role="listitem" class="card poster-card" tabindex="0">
+                    <article role="listitem" class="poster-card" tabindex="0">
                         <img src="assets/poster2.jpg" loading="lazy" alt="Poster 2" />
                         <div class="card-body">
                             <h4 class="card title small">Poster 2</h4>
                         </div>
                     </article>
 
-                    <article role="listitem" class="card poster-card" tabindex="0">
+                    <article role="listitem" class="poster-card" tabindex="0">
                         <img src="assets/poster3.jpg" loading="lazy" alt="Poster 3" />
                         <div class="card-body">
                             <h4 class="card title small">Poster 3</h4>
                         </div>
                     </article>
 
-                    <article role="listitem" class="card poster-card" tabindex="0">
+                    <article role="listitem" class="poster-card" tabindex="0">
                         <img src="assets/poster4.jpg" loading="lazy" alt="Poster 4" />
                         <div class="card-body">
                             <h4 class="card title small">Poster 4</h4>
                         </div>
                     </article>
 
-                    <article role="listitem" class="card poster-card" tabindex="0">
+                    <article role="listitem" class="poster-card" tabindex="0">
                         <img src="assets/poster5.jpg" loading="lazy" alt="Poster 5" />
                         <div class="card-body">
                             <h4 class="card title small">Poster 5</h4>
                         </div>
                     </article>
 
-                    <article role="listitem" class="card poster-card" tabindex="0">
+                    <article role="listitem" class="poster-card" tabindex="0">
                         <img src="assets/poster6.jpg" loading="lazy" alt="Poster 6" />
                         <div class="card-body">
                             <h4 class="card title small">Poster 6</h4>
                         </div>
+                    </article>
+
+                    <article role="listitem" class="poster-card" tabindex="0">
+                        <img src="assets/poster7.jpg" loading="lazy" alt="Poster 7" />
+                        <div class="card-body">
+                            <h4 class="card title small">Get Hard</h4>
+                        </div>
+                    </article>
+
+                    <article role="listitem" class="poster-card" tabindex="0">
+                        <img src="assets/poster8.jpg" loading="lazy" alt="Poster 8" />
                     </article>
 
             </div>
@@ -131,7 +148,8 @@
                 </div>
             </div>
            
-            <!-- cards to browse items with play buttons and descriptions -->
+            <!-- cards to browse items with play buttons and descriptions
+             descriptions recieved from https://www.themoviedb.org/ -->
             <div id="grid" class="row g-3">
                 <div class="col-6 col-sm-4 col-md-3">
                     <div class="card bg-secondary poster-card-small" tabindex="0">
@@ -139,7 +157,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 1 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button> <!-- play button for list view -->
                         </div>
                     </div>
                 </div>
@@ -150,7 +167,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 2 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button> 
                         </div>
                     </div>
                 </div>
@@ -161,7 +177,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 3 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
                         </div>
                     </div>
                 </div>
@@ -172,7 +187,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 4 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
                         </div>
                     </div>
                  </div>
@@ -183,7 +197,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 5 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
                         </div>
                     </div>
                 </div>
@@ -194,7 +207,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 6 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
                         </div>
                     </div>
                 </div>
@@ -205,7 +217,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 7 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
                         </div>
                     </div>
                 </div>
@@ -216,7 +227,6 @@
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 8 Title</h4> <!-- title for list view -->
                             <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
-                            <button class="btn btn-sm btn-danger mb-2 d-none d-sm-block">Play</button>
                         </div>
                     </div>
                 </div>
