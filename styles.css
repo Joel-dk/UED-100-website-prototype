@@ -1,11 +1,14 @@
 
 
-/* for consistent theming */
+/* Theme variables for consistent theming */
 :root{
     --bg:#141414;
     --panel:#0f0f0f;
     --muted: #9aa0a6;
     --accent: #E50914;
+
+    --anim-speed: 250ms;
+    --easing: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 /* smooth scrolling for in-page links */
 html {
@@ -18,7 +21,7 @@ body{
     color: #fff;
     font-family: "Segoe UI", Roboto, Helvetica, arial, sans-serif;
 }
-/*container max width to limit stretch for larger screens */
+/*container max width to limit stretch for larger screens https://web.dev/patterns/layout/ */
 .container{
     max-width: 1100px;
 }
@@ -35,7 +38,9 @@ body{
     color: #fff;
 }
 
-/* intro banner section: subtle gradient overlay and shadow for depth - enhances visual hierarchy and draws attention */
+/* ================================================================================================
+                                      intro banner 
+=================================================================================================== */
 .intro-banner{
     background: linear-gradient(90deg, rgba(20,20,20,0.95), rgba(30,30,30,0.75));
     border: 1px solid rgba(255,255,255,0.03);
@@ -46,7 +51,10 @@ body{
     color: #fff;
 }
 
-/*horizontal scroll for trending carousel posters*/
+/* ================================================================================================
+                                      trending carousel
+=================================================================================================== */
+/*horizontal scroll for trending carousel posters https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/::-webkit-scrollbar */
 .horizontal-scroll{
     display:flex;
     overflow-x: auto;
@@ -89,36 +97,80 @@ body{
     box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* browse all, smaller grid cards */
-.poster-card-small{
-    border-radius: 6px;
-    overflow: hidden;
-    border:1px solid rgba(255,255,255,0.03);
-}
-.poster-card-small img{
-    width: 100%; display:block;
-}
+/* ===========================================================================================
+                                    grid + list view
+============================================================================================== */
+/* shows first 4 posters by default, "show all" to display more */
 
-/* list view card details - title, description, play button */
 #grid > div:nth-child(n+5){
     display: none;
 }
-
 #grid.show-all > div:nth-child(n+5){
-    display: block;
+    display:block
 }
+.poster-card-small{
+    transition:
+    transform var(--anim-speed) var(--easing),
+    background var(--anim-speed) var(--easing),
+    border var(--anim-speed) var(--easing),
+    padding var(--anim-speed) var(--easing),
+    height var(--anim-speed) var(--easing),
+    opacity var(--anim-speed) var(--easing);
+}
+
 .card-details{
     padding:8px 0;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity:1;
+    transition: opacity var(--anim-speed) ease-in-out;
 }
+
+/* ==============================================================================================
+                                        grid view
+================================================================================================= 
+hides details for compact appearance using !important for override */
+#grid:not(.list-view) .card-details{
+    display: none !important;
+    opacity:0;
+}
+
+#grid:not(.list-view) .poster-card-small{
+    background: none !important;
+    padding: 0 !important;
+    border: none !important;
+    transform: scale(.97);
+}
+
+#grid:not(.list-view) .poster-card-small img{
+    width: 100%;
+    height: auto;
+    display:block;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#grid:not(.list-view) .poster-card-small:hover{
+    transform: scale(1.04);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+    z-index: 5;
+}
+#grid:not(.list-view) .col-6,
+#grid:not(.list-view) .col-sm-4,
+#grid:not(.list-view) .col-md-3{
+    overflow:visible !important;
+    background: none !important;
+}
+/* ==============================================================================================
+                                        list view  
+================================================================================================= 
+expands item for inhanced reading accessibility: displays movie name and details in readable text */
 
 #grid.list-view .col-6{
     flex: 0 0 100%;
     max-width: 100%;
-}
-
-#grid.list-view > div{
-    display: block !important;
 }
 
 #grid.list-view .poster-card-small{
@@ -132,27 +184,28 @@ body{
     border-radius: 6px;
     border: 1px solid rgba(255,255,255,0.08);
 
-    min-height: 150px;
-    height:auto;
+    opacity: 1;
+    transform: translateX(0);
 }
 
+/* 2:3 aspect ratio */
 #grid.list-view .poster-card-small img{
-    width:110px;
-    height: 160px;
+    width:140px;
+    height: 210px;
     border-radius: 4px;
 
     object-fit: cover;
     flex-shrink: 0;
 }
 
+/* text styling */
+
 #grid.list-view .card-details{
+    display: block !important;
+    opacity:1 !important;
     flex: 1;
     min-width: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
-
 #grid.list-view .card-details h4 {
     font-size: 1.05rem;
     margin-bottom: 6px;
@@ -161,29 +214,34 @@ body{
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-
-    color: #ffffff;
 }
 #grid.list-view .card-details p {
-    font-size: 0.9rem;
-    line-height: 1.3;
-    color: #9ca3af;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    color: #e5e5e5;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: visible;
 }
 
-#gril.list-view .poster-card-small:hover{
+.movie-description{
+    color: #9ea3a9 !important;
+    opacity: 1 !important;
+    line-height: 1.45
+}
+
+/* list hover effect */
+#grid.list-view .poster-card-small:hover{
     background:#2a2a2a;
     transform: scale(1.01);
     transition: .15s ease;
 }
 
+/* =============================================================================
+                                accessibiity
+================================================================================*/
 
-
-
-/* focus outlines for accessibility - visable only when keyboard is used */
+/* focus outlines for accessibility - visable only when keyboard is used https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus */
 .poster-card:focus, .poster-card-small:focus, button:focus, a:focus{
     box-shadow: 0 0 0 3px rgba(229,9,20,0.22);
     outline:none; border-radius:6px;
@@ -201,7 +259,7 @@ body{
     }
 }
 
-/* visually hidden class for accessibility */
+/* visually hidden class for accessibility (screen readers) */
 .visually-hidden {
     position: absolute !important;
     height: 1px;

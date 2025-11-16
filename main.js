@@ -1,32 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('grid');
-    
-    // Visability toggle show all / show less 
+    const layoutToggle = document.getElementById('layoutToggle');
     const visibilityToggle = document.getElementById('visibilityToggle');
+
+// ==================================================================================================
+//                                  SHOW ALL/ SHOW LESS
+// ==================================================================================================
+//toggles visability of the grid items beyond the 4th by adding/removing the 'show all' class
+//https://developer.mozilla.org/en-US/docs/Web/API/Element/classList 
 
     if (visibilityToggle && grid) {
         visibilityToggle.addEventListener('click', () => {
             //toggles visability of posters 5-8
             grid.classList.toggle('show-all');
+
             const isShowingAll = grid.classList.contains('show-all');
             visibilityToggle.textContent = isShowingAll ? 'Show less' : 'Show all';
         });
         visibilityToggle.textContent = 'Show all';
     }
-
-    // layout toggle grid / list view
-    const layoutToggle = document.getElementById('layoutToggle');
+// ==================================================================================================
+//                                    GRID / LIST VIEW
+// ==================================================================================================
+// adds/removes 'list-view' class to change layout style between grid and list
     if (layoutToggle && grid) {
         layoutToggle.addEventListener('click', () => {
             //toggles between grid and list view
             grid.classList.toggle('list-view');
             const isListView = grid.classList.contains('list-view');
+
             layoutToggle.textContent = isListView ? 'Grid view' : 'List view';
         });
         layoutToggle.textContent = 'List view';
     }
-
-    // form validation
+// =================================================================================================
+//                                  CONTACT FORM VALIDATION
+// =================================================================================================
+//adds validation to form submit event, prevents default action and provides inline feedback
+// https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event 
     const form = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     form.addEventListener('submit', (event) => {
@@ -61,8 +72,11 @@ document.addEventListener('DOMContentLoaded', () => {
         formStatus.style.color = 'lightgreen';
         form.reset();
     });
-
-    // keyboard accessibility for horizontal scroll
+// =======================================================================================================
+//                                 KEYBOARD SCROLL FOR TRENDING CAROUSEL
+// =======================================================================================================
+//allows keyboard navigation for carousel. adds a tabindex so containers are focusable by keyboard.
+// https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll 
     document.querySelectorAll('.horizontal-scroll').forEach(container => {
         container.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowRight') { container.scrollBy({ left: 240, behavior: 'smooth' }); }

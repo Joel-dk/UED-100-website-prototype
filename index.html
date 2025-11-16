@@ -22,8 +22,8 @@
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
         <!-- Brand logo image with alt text for accessibility-->
-            <img src="assets/logo.png" alt="brand logo" width="40" height="24" />
-            <span class="ms-2">Netflix Prototype</span>
+            <img src="assets/logo.png" alt="brand logo" width="60" height="36" />
+            <span class="ms-2 text-muted">Netflix Prototype</span>
         </a>
 
         <!-- Mobile menu toggle button using Aria attributes for accessibility.
@@ -45,19 +45,19 @@
     </div>
     </header>
 
-    <!-- Main heading which is visually hidden but present for screen readers -->
+    <!-- Main heading which is visually hidden but present for screen readers https://getbootstrap.com/docs/5.3/examples/visually-hidden/ -->
     <main id="main" class ="container py-4" tabindex ="-1" aria-labelledby="main-heading">
         <h1 id="main-heading" class="visually-hidden">Netflix Prototype</h1>
-
-        <!-- Featured section with a large image and text overlay using bootstrap grid system
+<!-------------------------------------------------------------------------------------------- FEATURED SECTION ----------------------------------------------------------------------------------------->
+        <!-- large banner content with bootsrap grid for layout https://getbootstrap.com/docs/5.3/layout/grid/ 
          "mb-4": (m)argin (b)ottom and 4 is the spacing value, "col-md-8": (col)umn - 12 coloumn grid, md = medium screen size: typically 768 px wide and 8 is the width the column should occupy https://getbootstrap.com/docs/5.0 -->
          <section class="mb-4">
             <div class='intro-banner p-4 rounded-3' role="region" aria-label="featured content">
                 <div class="row align-items-center">
 
                     <div class="col-md-8">
-                        <h2 class="display-6">Featured Title</h2> <!-- featured title insert -->
-                        <p class="lead"> description </p> <!-- featured description insert -->
+                        <h2 class="display-6">Happy Gilmore 2</h2> 
+                        <p class="lead"> Happy Gilmore isn't done with golf — not by a long shot. Since his retirement after his first Tour Championship win, Gilmore returns to finance his daughter's ballet classes. </p> <!-- descriptions aqcuired from https://www.themoviedb.org/ -->
                         <div>
                             <button class="btn btn-danger me-2">Play</button>
                             <button class="btn btn-outline-light" id="moreInfoBtn">More Info</button>
@@ -71,10 +71,12 @@
             </div>
         </section>
 
-        <!-- Trending carousel (horizontal scroll)
-         "role=list"/"role=listitem" for accessibility
+<!-----------------------------------------------------------------------------------------TRENDING CAROUSEL -------------------------------------------------------------------------------------------->
+        
+        <!--"role=list"/"role=listitem" for accessibility
          each poster can be 'tab focused' for keyboard navigation https://www.smashingmagazine.com/2023/02/guide-building-accessible-carousels/
          posters retrieved from https://www.themoviedb.org/ -->
+
         <section aria-label="Trending" class="mb-4">
             <h3 class="h5 mb-2">Trending</h3>
             <div class="horizontal-scroll" role="list" aria-label="Trending list">
@@ -85,7 +87,7 @@
                         <h4 class="card title small">Poster 1</h4>
                     </div>
                  </article>
-                 <!-- Repeat for each poster -->
+                 
                     <article role="listitem" class="poster-card" tabindex="0">
                         <img src="assets/poster2.jpg" loading="lazy" alt="Poster 2" />
                         <div class="card-body">
@@ -134,99 +136,96 @@
 
             </div>
         </section>
-
-        <!-- Browse all grid using Bootstraps row/col classes
-         will include a toggle button to switch between grid and list views-->
+<!------------------------------------------------------------------------------------------ BROWSE ALL --------------------------------------------------------------------------------------->
+        <!-- Browse all grid using Bootstraps row/col classes -->
          <section aria-label="Browse all" class="mb-4">
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <h3 class="h5">Browse all</h3>
                 <div>
-                    <!-- updates layout via js -->
                     <button id="layoutToggle" class="btn btn-sm btn-outline-light me-2">Toggle List</button>
 
                     <button id="visibilityToggle" class="btn btn-sm btn-outline-light">Show All</button>
                 </div>
             </div>
            
-            <!-- cards to browse items with play buttons and descriptions
-             descriptions recieved from https://www.themoviedb.org/ -->
+            <!-- descriptions recieved from https://www.themoviedb.org/ -->
             <div id="grid" class="row g-3">
                 <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster1.jpg" alt="poster 1" loading="lazy" />
                         <div class = "card-details">
-                            <h4 class="h6 mb-1">Poster 1 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <h4 class="h6 mb-1">Happy Gilmore</h4> <!-- title for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> Happy Gilmore isn't done with golf — not by a long shot. Since his retirement after his first Tour Championship win, Gilmore returns to finance his daughter's ballet classes. </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
 
                  <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster2.jpg" alt="poster 2" loading="lazy" />
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 2 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
 
                  <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster3.jpg" alt="poster 3" loading="lazy" />
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 3 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
 
                  <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster4.jpg" alt="poster 4" loading="lazy" />
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 4 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                  </div>
 
                 <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster5.jpg" alt="poster 5" loading="lazy" />
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 5 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
 
                 <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster6.jpg" alt="poster 6" loading="lazy" /> 
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 6 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster7.jpg" alt="poster 7" loading="lazy" />
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 7 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
 
                 <div class="col-6 col-sm-4 col-md-3">
-                    <div class="card bg-secondary poster-card-small" tabindex="0">
+                    <div class="poster-card-small" tabindex="0">
                         <img src="assets/poster8.jpg" alt="poster 8" loading="lazy" />
                         <div class = "card-details">
                             <h4 class="h6 mb-1">Poster 8 Title</h4> <!-- title for list view -->
-                            <p class="small text-muted mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
+                            <p class="small movie-description mb-2 d-none d-sm-block"> add movie description here </p> <!-- description for list view -->
                         </div>
                     </div>
                 </div>
@@ -234,8 +233,8 @@
             </div>
         </section>
 
-        <!-- Contact / feedback form
-         "novalidate": disables native validation so custom feedback can be shown. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
+<!---------------------------------------------------------------------------------- Contact / feedback form --------------------------------------------------------------------------------->
+         <!--"novalidate": disables native validation so custom feedback can be shown. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
          <section id="contact" aria-labelledby="contact-heading" class="mb-5">
             <h3 id="contact heading" class="h5">Contact / Feedback</h3>
             <form id="contactForm" novalidate>
