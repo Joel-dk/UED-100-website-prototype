@@ -1,4 +1,4 @@
-
+/* de Kleyn, Joel UED100 User Experience Design ID: A00174772 */
 
 /* Theme variables for consistent theming */
 :root{
@@ -237,12 +237,105 @@ expands item for inhanced reading accessibility: displays movie name and details
     transition: .15s ease;
 }
 
+/*===============================================================================
+                                account page
+===================================================================================*/
+
+.account-card{
+    background:var(--panel);
+    border-radius:10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding:16px 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+.profile-photo{
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.6);
+}
+
+.badge-plan{
+    background: rgba(229, 9, 20, 0.15);
+    color: #fff;
+    border:1px solid rgba(229, 9, 20, 0.6);
+    font-weight: 500;
+}
+
+.account-card .text-muted{
+    color: #aeb3ba !important;
+}
+
+.account-card strong{
+    display: inline-block;
+    margin-bottom: 2px;
+}
+
+/* toggle pill button style */
+.toggle-pill{
+    position: relative; width: 50px; height:26px; border-radius: 50px; border:1px solid rgba(255,255,255,0.25);
+    background: #222; cursor:pointer;
+    Transition:
+    background var(--anim-speed) var(--easing),
+    border-color var(--anim-speed) var(--easing);
+    padding: 0;
+    color: transparent; 
+}
+
+/* sliding dot */
+.toggle-pill::after{
+    content: "";
+    position: absolute; top:3px; left:3px;
+    width:20px; height:20px; border-radius:50%;
+    background:#fff;
+    transition: transform var(--anim-speed) var(--easing),
+    background var(--anim-speed) var(--easing);
+}
+/* toggled on state */
+.toggle-pill[aria-pressed="true"]{
+    background: var(--accent);
+    border-color: rgba(229,9,20,0.8);
+}
+.toggle-pill[aria-pressed="true"]::after{
+    transform: translateX(24px);
+    background:#fff;
+}
+/* hover effect */
+.toggle-pill:hover{
+    border-color: rgba(225,225,225,0.5);
+}
+/*focus */
+.toggle-pill:focus-visible{
+    outline:none;
+    box-shadow: 0 0 0 3px rgba(229,9,20,0.3);
+}
+
+/* subtitle select */
+.subtitle-select-wrapper{
+    min-width: 140px;
+    max-width: 180px;
+}
+.subtitle-select-wrapper select{
+    font-size: 0.85rem;
+}
+.subtitle-select-wrapper select:focus{
+    border-color:rgba(229,9,20,0.55);
+    box-shadow: 0 0 0 3px rgba(229,9,20,0.15);
+}
+
+.account-card:hover{
+    background: #161616;
+    transition: background 200ms ease;
+}
+
 /* =============================================================================
                                 accessibiity
 ================================================================================*/
 
 /* focus outlines for accessibility - visable only when keyboard is used https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus */
-.poster-card:focus, .poster-card-small:focus, button:focus, a:focus{
+.poster-card:focus, .poster-card-small:focus, button:not(.toggle-pill):focus, a:focus{
     box-shadow: 0 0 0 3px rgba(229,9,20,0.22);
     outline:none; border-radius:6px;
 }

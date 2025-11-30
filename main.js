@@ -1,3 +1,5 @@
+// de Kleyn, Joel UED100 User Experience Design ID: A00174772
+
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.getElementById('grid');
     const layoutToggle = document.getElementById('layoutToggle');
@@ -40,38 +42,41 @@ document.addEventListener('DOMContentLoaded', () => {
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/submit_event 
     const form = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        //grab inputs by name
-        const name = form.elements['name'];
-        const email = form.elements['email'];
-        let valid = true;
+    
+    if (form && formstatus){
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            //grab inputs by name
+            const name = form.elements['name'];
+            const email = form.elements['email'];
+            let valid = true;
 
-        // clear previous errors
-        [name, email].forEach(el => el.classList.remove('is-invalid'));
+            // clear previous errors
+            [name, email].forEach(el => el.classList.remove('is-invalid'));
 
-        // validate name must not be empty
-        if (!name.value.trim()) {
-            name.classList.add('is-invalid');
-            valid = false;
-        }
-        // validate email format
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email.value.trim() || !emailPattern.test(email.value)) {
-            email.classList.add('is-invalid');
-            valid = false;
-        }
-        // if not valid, show error message
-        if (!valid) {
-            formStatus.textContent = 'Please correct the errors in the form.';
-            formStatus.style.color = 'orange';
-            return;
-        }
-        // simulated success
-        formStatus.textContent = 'Thank you for your feedback!';
-        formStatus.style.color = 'lightgreen';
-        form.reset();
-    });
+            // validate name must not be empty
+            if (!name.value.trim()) {
+                name.classList.add('is-invalid');
+                valid = false;
+            }
+            // validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email.value.trim() || !emailPattern.test(email.value)) {
+                email.classList.add('is-invalid');
+                valid = false;
+            }
+            // if not valid, show error message
+            if (!valid) {
+                formStatus.textContent = 'Please correct the errors in the form.';
+                formStatus.style.color = 'orange';
+                return;
+            }
+            // simulated success
+            formStatus.textContent = 'Thank you for your feedback!';
+            formStatus.style.color = 'lightgreen';
+            form.reset();
+        });
+    }
 // =======================================================================================================
 //                                 KEYBOARD SCROLL FOR TRENDING CAROUSEL
 // =======================================================================================================
@@ -84,5 +89,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         container.tabIndex = 0; // make focusable
     });
+
+// ==================================================================================================
+//                                  ACCOUNT PAGE - TOGGLE PILL INTERACTIONS
+// ==================================================================================================
+// toggles active state on pill buttons in account page
+    document.querySelectorAll('.toggle-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const isPressed = btn.getAttribute('aria-pressed') === 'true';
+            btn.setAttribute('aria-pressed', String(!isPressed));
+            btn.textContent = isPressed ? 'Off' : 'On'; 
+        });
+    });
 });
+
 
