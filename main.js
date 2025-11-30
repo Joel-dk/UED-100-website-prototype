@@ -68,12 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // if not valid, show error message
             if (!valid) {
                 formStatus.textContent = 'Please correct the errors in the form.';
-                formStatus.style.color = 'orange';
+                formStatus.classList.remove('form-status-success');
+                formStatus.classList.add('form-status-error');
                 return;
             }
             // simulated success
             formStatus.textContent = 'Thank you for your feedback!';
-            formStatus.style.color = 'lightgreen';
+            formStatus.classList.remove('form-status-error');
+            formStatus.classList.add('form-status-success');
             form.reset();
         });
     }
