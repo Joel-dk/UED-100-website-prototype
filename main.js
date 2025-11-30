@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm');
     const formStatus = document.getElementById('formStatus');
     
-    if (form && formstatus){
+    if (form && formStatus){
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             //grab inputs by name
@@ -101,6 +101,52 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.textContent = isPressed ? 'Off' : 'On'; 
         });
     });
-});
 
+    // ==================================================================================================
+    //                          Trailer Modal - pause on close
+    // ==================================================================================================
+    // pauses trailer video when modal is closed
+    const trailerModal = document.getElementById('trailerModal');
+    const trailerVideo = document.getElementById('trailerVideo');
+
+    if (trailerModal && trailerVideo) {
+        trailerModal.addEventListener('hidden.bs.modal', () => {
+            trailerVideo.pause();
+            trailerVideo.currentTime = 0; // reset to start
+        });
+        //auto play trailer every time modal is opened
+        trailerModal.addEventListener('shown.bs.modal', () => {
+            trailerVideo.play();
+        });
+    }
+
+    // ==================================================================================================
+    //                          More Info Button 
+    // ==================================================================================================
+    // toggles full description and metadata on more info button click
+    const moreInfoBtn = document.getElementById('moreInfoBtn');
+    const descShort = document.getElementById('descShort');
+    const descFull = document.getElementById('descFull');
+    const meta = document.getElementById('meta');
+    
+    if (moreInfoBtn){
+        let expanded = false;
+
+        moreInfoBtn.addEventListener('click', () => {
+            expanded = !expanded;
+
+            if (expanded) {
+                descShort.classList.add('d-none');
+                descFull.classList.remove('d-none');
+                meta.classList.remove('d-none');
+                moreInfoBtn.textContent = 'Less Info';
+            } else {
+                descShort.classList.remove('d-none');
+                descFull.classList.add('d-none');
+                meta.classList.add('d-none');
+                moreInfoBtn.textContent = 'More Info';
+            }
+    });
+    }
+});
 

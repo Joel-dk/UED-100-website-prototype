@@ -37,7 +37,7 @@
         <!-- navigation menu links.
          "ms-auto" autoplaces items at the end for clean ui, "account" button launches account page -->
         <nav id="mainNav" class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto align items lg center">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
                 <li class="nav-item"><a class="nav-link" href="#">Browse</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">My List</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -59,9 +59,15 @@
 
                     <div class="col-md-8">
                         <h2 class="display-6">Happy Gilmore 2</h2> 
-                        <p class="lead"> Happy Gilmore isn't done with golf — not by a long shot. Since his retirement after his first Tour Championship win, Gilmore returns to finance his daughter's ballet classes. </p> <!-- descriptions aqcuired from https://www.themoviedb.org/ -->
+                        <p id=descShort class="lead text-truncate-2"> Happy Gilmore isn't done with golf — not by a long shot... </p> <!-- descriptions aqcuired from https://www.themoviedb.org/ -->
+                        <p id="descFull" class="lead d-none">Happy Gilmore isn't done with golf — not by a long shot. Since his retirement after his first Tour Championship win, Gilmore returns to finance his daughter's ballet classes.</p>
+                        <div id="meta" class="d-none small mb-3">
+                            <span>2025</span>
+                            <span>1h 52m</span>
+                            <span>Comedy</span>
+                        </div>
                         <div>
-                            <button class="btn btn-danger me-2">Play</button>
+                            <button class="btn btn-danger me-2" type="button" data-bs-toggle="modal" data-bs-target="#trailerModal">Play</button>
                             <button class="btn btn-outline-light" id="moreInfoBtn">More Info</button>
                         </div>
                     </div>
@@ -238,7 +244,7 @@
 <!---------------------------------------------------------------------------------- Contact / feedback form --------------------------------------------------------------------------------->
          <!--"novalidate": disables native validation so custom feedback can be shown. https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form -->
          <section id="contact" aria-labelledby="contact-heading" class="mb-5">
-            <h3 id="contact heading" class="h5">Contact / Feedback</h3>
+            <h3 id="contact-heading" class="h5">Contact / Feedback</h3>
             <form id="contactForm" novalidate>
                 <div class="mb-3">
                     <label for="name" class="form-label">Name<span aria-hidden="true">*</span></label>
@@ -273,5 +279,20 @@
     <!-- bootstrap JS for interactive components -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src ="main.js"></script>
+
+    <!-- Modal for featured trailer https://getbootstrap.com/docs/5.3/components/modal/ -->
+     <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content bg-black border-0">
+
+                <button type="button" class="btn-close btn-close-white trailer-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                <div class="modal-body p-0">
+                    <video id="trailerVideo" class="w-100 h-100" controls autoplay>
+                        <source src="assets/trailer.mp4" type="video/mp4">Your browser does not support the video tag.</video> <!-- trailer sourced from https://www.youtube.com/watch?v=YKzRPFvky9Y -->
+                </div>
+            </div>
+        </div>
+     </div>
 </body>
 </html>

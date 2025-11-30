@@ -51,6 +51,14 @@ body{
     color: #fff;
 }
 
+.text-truncate-2 {
+    display: -webkit-box;
+    -line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
 /* ================================================================================================
                                       trending carousel
 =================================================================================================== */
@@ -153,7 +161,7 @@ hides details for compact appearance using !important for override */
 }
 
 #grid:not(.list-view) .poster-card-small:hover{
-    transform: scale(1.04);
+    transform: scale(1.02);
     box-shadow: 0 10px 26px rgba(0,0,0,0.45);
     z-index: 5;
 }
@@ -360,4 +368,19 @@ expands item for inhanced reading accessibility: displays movie name and details
     overflow: hidden;
     clip:rect(1px, 1px, 1px, 1px);
     white-space: nowrap;
+}
+
+/* ================================================================================================
+                                      modal trailer
+=================================================================================================== */
+.trailer-close-btn{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 50;
+    filter: drop-shadow(0 0 4px rgba(0,0,0,0.6))
+}
+#trailerVideo{
+    object-fit:cover;
+    background: #000;
 }
